@@ -17,7 +17,7 @@ jobs:
       - run: bundle install
       - name: Write certs deploy key
         run: |
-          echo "$APPLE_CERTIFICATES_DEPLOY_KEY" > ~/.ssh/apple_certs_deploy
+          echo "${{ secrets.APPLE_CERTIFICATES_DEPLOY_KEY }}" > ~/.ssh/apple_certs_deploy
           chmod 0600 ~/.ssh/apple_certs_deploy
       - run: bundle exec fastlane match development --git_url=https://github.com/nornagon/apple-certificates --git_private_key=$HOME/.ssh/apple_certs_deploy
         env:
