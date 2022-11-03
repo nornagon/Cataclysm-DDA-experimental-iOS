@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "${{ secrets.APPLE_CERTIFICATES_DEPLOY_KEY }}" > ~/.ssh/apple_certs_deploy
           chmod 0600 ~/.ssh/apple_certs_deploy
-      - run: bundle exec fastlane match development --git_url=git@github.com:nornagon/apple-certificates --git_private_key=$HOME/.ssh/apple_certs_deploy
+      - run: bundle exec fastlane match development --git_url=git@github.com:nornagon/apple-certificates --git_private_key=$HOME/.ssh/apple_certs_deploy --readonly -a net.nornagon.cdda.experimental
         env:
           FASTLANE_USER: nornagon+us@nornagon.net
           FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
