@@ -1,0 +1,8 @@
+build --cxxopt='-std=gnu++14'
+build --disk_cache=~/.cache/bazel
+build --ios_simulator_device="iPad Air (4th generation)"
+build --apple_platform_type=ios
+
+build:release --ios_multi_cpus=armv7,arm64
+build:release -c opt
+build:release --define BUILD_TYPE=release
