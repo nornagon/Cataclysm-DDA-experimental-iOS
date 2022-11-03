@@ -1,0 +1,19 @@
+name: Debug build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build CDDA-iOS
+    runs-on: macos
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - run: bundle install
+      - run: npm install -g @bazel/bazelisk
+      - run: bazelisk build //:cdda_ios
