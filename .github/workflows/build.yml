@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Build CDDA-iOS
-    runs-on: macos
+    runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
