@@ -121,19 +121,14 @@ http_archive(
 
 ## CDDA
 
-#http_archive(
-#    name = "cdda",
-#    urls = ["https://github.com/CleverRaven/Cataclysm-DDA/archive/{}.zip".format(CDDA_VERSION)],
-#    sha256 = CDDA_SHASUM,
-#    strip_prefix = "Cataclysm-DDA-{}".format(CDDA_VERSION),
-#    patches = ["@//:cdda.patch"],
-#    patch_args = ["-p1"],
-#    build_file = "cdda.BUILD",
-#)
-new_local_repository(
+http_archive(
     name = "cdda",
-    path = "/users/nornagon/source/cataclysm-dda",
-    build_file = "external/cdda.BUILD",
+    urls = ["https://github.com/CleverRaven/Cataclysm-DDA/archive/{}.zip".format(CDDA_VERSION)],
+    sha256 = CDDA_SHASUM,
+    strip_prefix = "Cataclysm-DDA-{}".format(CDDA_VERSION),
+    patches = ["@//:cdda.patch"],
+    patch_args = ["-p1"],
+    build_file = "cdda.BUILD",
 )
 
 ## Tulsi (Xcode project generator)
