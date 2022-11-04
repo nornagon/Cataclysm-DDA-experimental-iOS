@@ -49,6 +49,7 @@ objc_library(
     name = "cdda_objc_common_gamepad",
     srcs = [
         "Common/source/GamePadViewController.h",
+        "Common/source/DPadView.h",
         "Common/source/SDL_uikitviewcontroller+Gamepad.h",
         "Common/source/SDL_uikitviewcontroller+Gamepad.mm",
         "Common/source/game_dependent.h",
@@ -74,6 +75,8 @@ objc_library(
         "Common/source/CDDA_iOS_main.h",
         "Common/source/GamePadViewController.h",
         "Common/source/GamePadViewController.m",
+        "Common/source/DPadView.h",
+        "Common/source/DPadView.m",
         "Common/source/SDL_char_utils.h",
         "Common/source/SDL_char_utils.m",
         "Common/source/SDL_uikitview+CDDA.h",
@@ -87,8 +90,8 @@ objc_library(
         "Common/source/path_utils.m",
     ],
     data = [
-        "Common/Bundle/Base.lproj/Main.storyboard",
         "Common/Bundle/JSDPad/dPad-None@2x.png",
+        "Common/Bundle/Base.lproj/Main.storyboard",
         "Common/Bundle/Settings.bundle",
     ],
     includes = ["Common/source"],

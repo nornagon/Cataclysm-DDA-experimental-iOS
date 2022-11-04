@@ -236,6 +236,57 @@ NSDate* lastPress;
     SDL_send_keysym_or_text(sym, KMOD_NONE, text);
 }
 
+#pragma mark - DPadViewDelegate
+
+DPadViewDirection _lastDirection;
+NSTimer* _repeat;
+
+- (void)dPad:(DPadView *)dPad didPressDirection:(DPadViewDirection)direction {
+    [self sendDirectionKey:direction];
+
+    _lastDirection = direction;
+    [_repeat invalidate];
+    _repeat = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:0.5] interval:0.1 target:self selector:@selector(repeatLastDirection:) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:_repeat forMode:NSRunLoopCommonModes];
+}
+- (void)dPadDidReleaseDirection:(DPadView *)dPad {
+    [_repeat invalidate];
+    _repeat = nil;
+}
+
+- (void)repeatLastDirection:(id)unused {
+    [self sendDirectionKey:_lastDirection];
+}
+
+- (void)sendDirectionKey:(DPadViewDirection)direction {
+    SDL_Keycode sym = SDLK_UNKNOWN;
+    NSString* text;
+
+    if (direction == DPadViewDirectionUpLeft)
+        text = @"7";
+    else if (direction == DPadViewDirectionUp)
+        sym = SDLK_UP;
+    else if (direction == DPadViewDirectionUpRight)
+        text = @"9";
+    else if (direction == DPadViewDirectionLeft)
+        sym = SDLK_LEFT;
+    else if (direction == DPadViewDirectionMiddle)
+        text = @".";
+    else if (direction == DPadViewDirectionRight)
+        sym = SDLK_RIGHT;
+    else if (direction == DPadViewDirectionDownLeft)
+        text = @"1";
+    else if (direction == DPadViewDirectionDown)
+        sym = SDLK_DOWN;
+    else if (direction == DPadViewDirectionDownRight)
+        text = @"3";
+    else
+    {
+        return;
+    }
+
+    SDL_send_keysym_or_text(sym, KMOD_NONE, text);
+}
 
 #pragma mark - Page up / Page down scroll
 

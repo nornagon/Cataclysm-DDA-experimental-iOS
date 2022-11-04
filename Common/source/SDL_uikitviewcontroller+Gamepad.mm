@@ -178,7 +178,6 @@ static CGSize _minSize = {632, 368};
 {
     UIView* view = self.view;
     CGRect viewFrame = view.frame;
-    DebugLog( D_INFO, DC_ALL ) << "T begin, viewFrame " << viewFrame.size.width << " x " << viewFrame.size.height;
     UIWindow* window = view.window;
 
     if (@available(iOS 11.0, *)) {
@@ -194,7 +193,6 @@ static CGSize _minSize = {632, 368};
     {
         viewFrame.size.height = keyboardLessHeight;
     }
-    DebugLog( D_INFO, DC_ALL ) << "resizing to " << viewFrame.size.width << " x " << viewFrame.size.height;
     view.frame = viewFrame;
 }
 
@@ -235,7 +233,6 @@ OnKeyboardHandler* _onKeyboardHandler;
 - (void)viewWillTransitionToSize:(CGSize)size
        withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    NSLog(@"viewWillTransitionToSize %f x %f", size.width, size.height);
     [self maybeUpdateFrameTo:size];
 }
 
@@ -243,7 +240,6 @@ OnKeyboardHandler* _onKeyboardHandler;
     if (_gamepadViewController)
     {
         CGRect frame = _gamepadViewController.view.frame;
-        NSLog(@"maybeUpdateFrameTo %f x %f", size.width, size.height);
         frame.size = size;
         _gamepadViewController.view.frame = frame;
     }
@@ -273,10 +269,12 @@ GamePadViewController* _gamepadViewController;
     showKeyboardGR.direction = UISwipeGestureRecognizerDirectionUp;
     showKeyboardGR.delaysTouchesBegan = YES;
     [showKeyboardGR addTarget:self action:@selector(showKeyboard)];
+    showKeyboardGR.delegate = self;
     
     hideKeyboardGR.direction = UISwipeGestureRecognizerDirectionDown;
     hideKeyboardGR.delaysTouchesBegan = YES;
     [hideKeyboardGR addTarget:self action:@selector(hideKeyboard)];
+    hideKeyboardGR.delegate = self;
     
     UIPanGestureRecognizer* panViewGR = [UIPanGestureRecognizer new];
     [panViewGR addTarget:self action:@selector(panView:)];
@@ -300,6 +298,12 @@ GamePadViewController* _gamepadViewController;
 
     self.view.gestureRecognizers = @[showKeyboardGR, hideKeyboardGR, panViewGR, zoomGR, centerViewGR];
 }
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer 
+       shouldReceiveTouch:(UITouch *)touch {
+    return touch.view == _gamepadViewController.view || touch.view == self.view;
+}
+
 
 GestureRecognizerDelegate* _gestureRecognizerDelegate;
 

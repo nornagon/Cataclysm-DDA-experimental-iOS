@@ -5,7 +5,7 @@
 
 #import "external/sdl2/src/video/uikit/SDL_uikitviewcontroller.h"
 
-@interface SDL_uikitviewcontroller (Gamepad)
+@interface SDL_uikitviewcontroller (Gamepad) <UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) int keyboardHeight;
 

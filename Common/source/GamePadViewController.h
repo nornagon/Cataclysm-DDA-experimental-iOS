@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "CDDA-Swift.h"
+#import "DPadView.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GamePadViewController : UIViewController <UIGestureRecognizerDelegate>
+@interface GamePadViewController : UIViewController <UIGestureRecognizerDelegate, DPadViewDelegate>
 
 -(IBAction)toggleMenu:(MenuButton*)sender;
 @property (weak, nonatomic) IBOutlet UIView* menusView;
+@property (weak, nonatomic) IBOutlet UIView* dpadView;
+
 -(IBAction)pressKey:(MenuButton*)sender;
 -(IBAction)holdGamepadButton:(UILongPressGestureRecognizer*)sender;
 -(IBAction)tapGamepadButton:(UITapGestureRecognizer*)sender;
