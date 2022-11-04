@@ -1,0 +1,5 @@
+Cataclysm: Dark Days Ahead is a turn-based survival game set in a post-apocalyptic world. Struggle to survive in a harsh, persistent, procedurally generated world. Scavenge the remnants of a dead civilization for food, equipment, or, if you are lucky, a vehicle with a full tank of gas to get you the hell out of Dodge. Fight to defeat or escape from a wide variety of powerful monstrosities, from zombies to giant insects to killer robots and things far stranger and deadlier, and against the others like yourself, that want what you have…
+
+This is the Experimental version of Cataclysm: Dark Days Ahead. It is updated weekly, but may be less stable and crash or lose data.
+
+The most recent stable version of Cataclysm is available here: https://apps.apple.com/us/app/cataclysm-roguelike-rpg-0-f/id1577366679
