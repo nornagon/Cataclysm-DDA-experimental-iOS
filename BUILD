@@ -3,6 +3,7 @@ load("@build_bazel_rules_apple//apple:versioning.bzl", "apple_bundle_version")
 load("@build_bazel_rules_apple//apple:resources.bzl", "apple_resource_group")
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 load("@build_bazel_rules_apple//apple:apple.bzl", "local_provisioning_profile")
+load("cdda_version.bzl", "CDDA_BUILD_NUMBER")
 
 local_provisioning_profile(
     name = "app_debug_profile",
@@ -16,8 +17,8 @@ local_provisioning_profile(
 
 apple_bundle_version(
     name = "version",
-    build_version = "1.0.0",
-    short_version_string = "1.0",
+    build_version = "1." + CDDA_BUILD_NUMBER + ".0",
+    short_version_string = "1." + CDDA_BUILD_NUMBER + ".0",
 )
 
 filegroup(
