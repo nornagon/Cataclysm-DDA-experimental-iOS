@@ -1338,32 +1338,30 @@
                                     <outlet property="delegate" destination="mgi-Zq-ipg" id="x0M-kd-dVj"/>
                                 </connections>
                             </view>
-                            <imageView opaque="NO" clipsSubviews="YES" alpha="0.25" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dPad-None.png" translatesAutoresizingMaskIntoConstraints="NO" id="2dS-FG-EBt">
+                            <view opaque="NO" alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXT-1l-zGV" customClass="DPadView">
                                 <rect key="frame" x="40" y="258" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="j1s-lh-2pZ"/>
-                                    <constraint firstAttribute="width" constant="150" id="vvl-SJ-GDa"/>
+                                    <constraint firstAttribute="width" constant="150" id="HSJ-VU-oRE"/>
+                                    <constraint firstAttribute="height" constant="150" id="t7m-2u-PRl"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="et0-PU-Ud3" appends="YES" id="YIc-hb-xXj"/>
-                                    <outletCollection property="gestureRecognizers" destination="bmE-fl-EP6" appends="YES" id="Jup-g3-bQ9"/>
+                                    <outlet property="delegate" destination="mgi-Zq-ipg" id="M2X-pw-dSq"/>
                                 </connections>
-                            </imageView>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="S8L-gp-5HW" firstAttribute="leading" secondItem="Fd8-TI-tt4" secondAttribute="leading" id="0Y6-N6-cfR"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7Oo-ZZ-6WE" secondAttribute="top" constant="375" id="25d-zv-lOg"/>
-                            <constraint firstItem="S8L-gp-5HW" firstAttribute="trailing" secondItem="2dS-FG-EBt" secondAttribute="leading" id="2BI-hL-kmu"/>
-                            <constraint firstAttribute="bottom" secondItem="2dS-FG-EBt" secondAttribute="bottom" constant="20" id="3Sg-fT-sqb"/>
-                            <constraint firstItem="2dS-FG-EBt" firstAttribute="leading" secondItem="7Oo-ZZ-6WE" secondAttribute="leading" id="6Va-9a-hi0"/>
+                            <constraint firstItem="JXT-1l-zGV" firstAttribute="leading" secondItem="S8L-gp-5HW" secondAttribute="trailing" id="6Lg-rB-UUL"/>
+                            <constraint firstAttribute="bottom" secondItem="JXT-1l-zGV" secondAttribute="bottom" constant="20" id="9Et-dz-GSJ"/>
                             <constraint firstItem="Pda-20-GCt" firstAttribute="centerY" secondItem="fT9-H1-Jfz" secondAttribute="centerY" id="EJZ-kc-09k"/>
                             <constraint firstItem="8K9-WE-QV7" firstAttribute="leading" secondItem="8JH-KK-t87" secondAttribute="leading" id="IpI-cJ-hyW"/>
                             <constraint firstAttribute="bottom" secondItem="S8L-gp-5HW" secondAttribute="bottom" id="J2c-wp-qwo"/>
                             <constraint firstItem="7Oo-ZZ-6WE" firstAttribute="top" secondItem="Fd8-TI-tt4" secondAttribute="top" priority="750" id="L4P-nJ-96g"/>
+                            <constraint firstItem="JXT-1l-zGV" firstAttribute="leading" secondItem="7Oo-ZZ-6WE" secondAttribute="leading" id="Q6E-9T-x51"/>
                             <constraint firstItem="3uG-Qh-1BN" firstAttribute="top" secondItem="7Oo-ZZ-6WE" secondAttribute="top" id="Xfv-Kn-Dty"/>
                             <constraint firstItem="l6Z-Bs-2kE" firstAttribute="top" secondItem="7Oo-ZZ-6WE" secondAttribute="top" id="gbt-8X-WP5"/>
                             <constraint firstItem="rlg-EG-sBP" firstAttribute="top" secondItem="7Oo-ZZ-6WE" secondAttribute="top" id="hhE-pr-7CK"/>
-                            <constraint firstItem="Wys-zh-cet" firstAttribute="leading" secondItem="2dS-FG-EBt" secondAttribute="trailing" id="hzI-mD-wn6"/>
                             <constraint firstItem="8K9-WE-QV7" firstAttribute="bottom" secondItem="Fd8-TI-tt4" secondAttribute="bottom" id="i4V-ph-iYU"/>
                             <constraint firstItem="1Vg-SI-Zpj" firstAttribute="top" secondItem="7Oo-ZZ-6WE" secondAttribute="top" id="iCe-Gi-87Y"/>
                             <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="7Oo-ZZ-6WE" secondAttribute="top" constant="428" id="ima-3b-k0a"/>
@@ -1375,6 +1373,7 @@
                             <constraint firstItem="S8L-gp-5HW" firstAttribute="top" secondItem="Fd8-TI-tt4" secondAttribute="top" id="mYZ-u9-ZFb"/>
                             <constraint firstItem="8JH-KK-t87" firstAttribute="trailing" secondItem="1Vg-SI-Zpj" secondAttribute="trailing" id="mnu-Ax-hoC"/>
                             <constraint firstAttribute="bottom" secondItem="Wys-zh-cet" secondAttribute="bottom" id="qI0-Kp-5ew"/>
+                            <constraint firstItem="Wys-zh-cet" firstAttribute="leading" secondItem="JXT-1l-zGV" secondAttribute="trailing" id="rFE-Up-S9p"/>
                             <constraint firstAttribute="bottom" secondItem="8JH-KK-t87" secondAttribute="bottom" constant="20" id="sfr-tZ-DHF"/>
                             <constraint firstItem="Wys-zh-cet" firstAttribute="top" secondItem="Fd8-TI-tt4" secondAttribute="top" id="wgb-eh-GTP"/>
                             <constraint firstItem="rlg-EG-sBP" firstAttribute="leading" secondItem="7Oo-ZZ-6WE" secondAttribute="trailing" constant="20" id="zLR-bM-2oV"/>
@@ -1384,6 +1383,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="dpadView" destination="JXT-1l-zGV" id="m4A-lW-yDW"/>
                         <outlet property="menusView" destination="Wys-zh-cet" id="Bqw-jS-cv2"/>
                     </connections>
                 </viewController>
@@ -1472,7 +1472,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dPad-None.png" width="114" height="114"/>
         <image name="scroll" width="39.333332061767578" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
