@@ -1423,6 +1423,7 @@
                 <pongPressGestureRecognizer cancelsTouchesInView="NO" allowableMovement="10" minimumPressDuration="0.5" id="Vcz-AR-Xcm" userLabel="Temporarily Hide UI Long Press Gesture Recognizer">
                     <connections>
                         <action selector="temporarilyHideUI:" destination="mgi-Zq-ipg" id="XH3-jZ-nJU"/>
+                        <outlet property="delegate" destination="mgi-Zq-ipg" id="nc6-Sd-Ug7"/>
                     </connections>
                 </pongPressGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="0o5-7S-5Oj" userLabel="Misc button show'n'fix menu Long Press Gesture Recognizer" customClass="ShowAndFixGestureRecognizer" customModule="CDDA" customModuleProvider="target">

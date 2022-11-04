@@ -336,6 +336,11 @@ const float _scrollingPrecision = 10;
 
 # pragma mark - UI hiding
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer 
+       shouldReceiveTouch:(UITouch *)touch {
+    return touch.view == self.view;
+}
+
 -(void)temporarilyHideUI:(UILongPressGestureRecognizer*)sender
 {
     switch (sender.state) {
